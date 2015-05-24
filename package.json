@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "build": "set TARGET=build&&webpack",
-    "start": "set TARGET=dev&&node dev-server/server.js"
+    "build": "set TARGET=build&&webpack -color",
+    "start": "set TARGET=dev&&node dev-server/server.js",
+    "lint": "eslint . --ext .js --ext .jsx"
   },
   "repository": {
     "type": "git",
@@ -15,12 +16,59 @@
   "author": "giles",
   "license": "ISC",
   "devDependencies": {
+    "babel-eslint": "^3.1.8",
     "css-loader": "^0.14.0",
+    "eslint": "^0.21.2",
+    "eslint-loader": "^0.11.2",
+    "eslint-plugin-react": "^2.3.0",
+    "esprima-fb": "^15001.1.0-dev-harmony-fb",
     "html-webpack-plugin": "^1.4.0",
+    "jscs": "^1.13.1",
+    "jscs-loader": "^0.1.0",
     "lodash": "^3.9.1",
     "node-libs-browser": "^0.5.2",
     "style-loader": "^0.12.2",
     "webpack": "^1.9.8",
     "webpack-dev-server": "^1.9.0"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "plugins": [
+      "react"
+    ],
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    },
+    "rules": {
+      "strict": [
+        2,
+        "global"
+      ],
+      "no-underscore-dangle": 1,
+      "no-use-before-define": 0,
+      "eol-last": 0,
+      "quotes": [
+        2,
+        "single"
+      ],
+      "comma-dangle": "always",
+      "react/jsx-boolean-value": 1,
+      "react/jsx-quotes": 1,
+      "react/jsx-no-undef": 1,
+      "react/jsx-uses-react": 1,
+      "react/jsx-uses-vars": 1,
+      "react/no-did-mount-set-state": 1,
+      "react/no-did-update-set-state": 1,
+      "react/no-multi-comp": 1,
+      "react/no-unknown-property": 1,
+      "react/react-in-jsx-scope": 1,
+      "react/self-closing-comp": 1,
+      "react/wrap-multilines": 1
+    }
   }
 }

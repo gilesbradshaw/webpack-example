@@ -1,0 +1,23 @@
+{
+  "esprima": "esprima-fb",
+  "preset": "google",
+
+  "fileExtensions": [".js", ".jsx"],
+
+  "requireCurlyBraces": true,
+  "requireParenthesesAroundIIFE": true,
+
+  "maximumLineLength": 120,
+  "validateIndentation": "\t",
+
+  "disallowKeywords": ["with"],
+  "disallowSpacesInsideObjectBrackets": null,
+  "disallowImplicitTypeConversion": ["string"],
+
+  "safeContextKeyword": "that",
+
+  "excludeFiles": [
+    "dist/**",
+    "node_modules/**"
+  ]
+}

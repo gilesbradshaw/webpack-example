@@ -4,7 +4,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 var TARGET = process.env.TARGET;
 var ROOT_PATH = path.resolve(__dirname);
- 
+
 var common = {
   entry: [path.join(ROOT_PATH, 'app/main')],
   output: {
@@ -45,6 +45,19 @@ if(TARGET === 'dev') {
       'webpack-dev-server/client?http://' + IP + ':' + PORT,
       'webpack/hot/dev-server',
     ],
+    
+    module: {
+      preLoaders: [
+        {
+          test: /\.jsx?$/,
+          // we are using `eslint-loader` explicitly since
+          // we have eslint module installed. This way we
+          // can be certain that it uses the right loader
+          loaders: ['eslint-loader', 'jscs'],
+          include: path.join(ROOT_PATH, 'app'),
+        }
+      ],
+    },
     output: {
       path: __dirname,
       filename: 'bundle.js',
