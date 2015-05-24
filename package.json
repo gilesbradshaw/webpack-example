@@ -6,16 +6,17 @@
   "scripts": {
     "test": "test",
     "build": "set TARGET=build&&webpack",
-    "start": "set TARGET=dev&&webpack-dev-server --config webpack.development.js --devtool eval --progress --colors --hot --content-base build"
+    "start": "set TARGET=dev&&node dev-server/server.js"
   },
   "repository": {
     "type": "git",
-    "url": "kanban_app"
+    "url": "git@github.com:gilesbradshaw/webpack-example.git"
   },
   "author": "giles",
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^0.14.0",
+    "html-webpack-plugin": "^1.4.0",
     "lodash": "^3.9.1",
     "node-libs-browser": "^0.5.2",
     "style-loader": "^0.12.2",
