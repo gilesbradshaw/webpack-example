@@ -9,4 +9,13 @@ var path = require('path');
      path: path.resolve(__dirname, 'build'),
      filename: 'bundle.js',
    },
+   module: {
+     loaders: [
+       {
+         test: /\.css$/,
+         loaders: ['style', 'css']
+       }
+     ]
+   }
+
  };
